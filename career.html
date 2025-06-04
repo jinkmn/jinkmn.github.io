@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jinkmnのITポートフォリオ - 経歴</title>
+    <style>
+      /* ベーススタイル */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: #555;
+        transition: background-color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: #777;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0056b3;
+      }
+
+      /* メインコンテンツのコンテナ */
+      .main-content-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+      }
+
+      /* 各セクションの共通スタイル */
+      .page-section {
+        max-width: 800px;
+        width: 100%;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+      }
+
+      /* 経歴アイテムのスタイル */
+      .career-item {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee; /* 各項目を線で区切る */
+      }
+      .career-item:last-child {
+        border-bottom: none; /* 最後の項目は線をなくす */
+      }
+      .career-item h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #007bff; /* 小見出しの色 */
+        font-size: 1.5em;
+      }
+      .career-item p {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+      }
+      .career-item ul {
+        list-style: disc; /* リストの黒丸を表示 */
+        padding-left: 25px;
+        margin-top: 10px;
+      }
+      .career-item ul li {
+        margin-bottom: 5px;
+      }
+      .career-item strong {
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>jinkmnのITポートフォリオ</h1>
+      <nav>
+        <a href="index.html">自己紹介</a>
+        <a href="career.html">経歴</a>
+        <a href="works.html">成果物</a>
+      </nav>
+    </header>
+
+    <div class="main-content-container">
+      <section class="page-section">
+        <h2>経歴</h2>
+        <p>私の学歴、職務経歴、そしてIT学習・活動歴についてご紹介します。</p>
+
+        <h3>学歴</h3>
+        <div class="career-item">
+          <p><strong>入学 2022年</strong></p>
+          <h3>慶応義塾大学 理工学部電気情報工学科</h3>
+          <ul>
+            <li>pythonを使ったデータ分析 DeepLearning</li>
+            <li>ノーベル賞受賞li></li>
+          </ul>
+        </div>
+        <h3>職務経歴</h3>
+        <div class="career-item">
+          <p><strong>[入社年月] - [退職年月 または 在職中]</strong></p>
+          <h3>[会社名] - [役職名]</h3>
+          <ul>
+            <li>[担当プロジェクトや業務内容の詳細を記述]</li>
+            <li>[使用技術: HTML, CSS, JavaScript, Python, SQL など]</li>
+            <li>[達成したこと、貢献したこと（数値を用いて具体的に）]</li>
+            <li>[チームでの役割やリーダーシップ経験などがあれば記述]</li>
+          </ul>
+        </div>
+        <h3>学習・活動歴 (IT関連)</h3>
+        <div class="career-item">
+          <p><strong>[開始年月] - [終了年月 または 継続中]</strong></p>
+          <h3>[学習/活動名]</h3>
+          <ul>
+            <li>[学習内容や活動内容を記述]</li>
+            <li>[習得したスキルや知識]</li>
+            <li>[成果物や参加したプロジェクトなどがあれば記述]</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

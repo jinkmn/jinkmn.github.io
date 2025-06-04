@@ -3,21 +3,218 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ごあいさつ</title>
+    <title>jinkmnのITポートフォリオ</title>
+    <style>
+      /* ベーススタイル */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex; /* bodyをflexコンテナにして中央寄せしやすくする */
+        flex-direction: column;
+        min-height: 100vh; /* 画面いっぱいの高さにする */
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: #555;
+        transition: background-color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: #777;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0056b3;
+      }
+
+      /* メインコンテンツのコンテナ */
+      .main-content-container {
+        flex-grow: 1; /* 残りのスペースを埋める */
+        display: flex;
+        justify-content: center; /* 水平方向の中央寄せ */
+        align-items: center; /* 垂直方向の中央寄せ */
+        padding: 20px 0; /* 上下の余白 */
+      }
+
+      /* 自己紹介セクション */
+      .profile-section {
+        max-width: 800px;
+        width: 100%; /* 親要素の幅いっぱいに広がる */
+        padding: 30px; /* パディングを少し増やす */
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* 影を強調 */
+        border-radius: 10px; /* 角を丸くする */
+        text-align: center; /* h2要素を中央寄せするため */
+      }
+
+      /* プロフィールカードのレイアウト（CSS Grid） */
+      .profile-card {
+        display: grid;
+        /* grid-template-areas: アイコン、名前・所属、一言自己紹介の配置を定義 */
+        grid-template-areas:
+          "icon name-affiliation"
+          "bio bio"; /* 'bio'が2列を占める */
+        grid-template-columns: 150px 1fr; /* アイコンの固定幅と残りの幅 */
+        gap: 20px; /* グリッドアイテム間の隙間 */
+        align-items: center; /* 各アイテムを垂直方向の中央に揃える */
+        margin-bottom: 30px; /* カードの下に余白 */
+        padding-bottom: 20px; /* カード内部の下パディング */
+        border-bottom: 1px solid #eee; /* 下線で区切る */
+      }
+
+      .profile-icon {
+        grid-area: icon; /* grid-template-areasで定義した'icon'エリアに配置 */
+        justify-self: center; /* アイコン画像をグリッドセル内で中央寄せ */
+      }
+
+      .profile-icon img {
+        width: 120px; /* アイコン画像のサイズを調整 */
+        height: 120px;
+        border-radius: 50%; /* 円形にクリップ */
+        object-fit: cover; /* 画像が楕円にならないように調整 */
+        border: 4px solid #007bff; /* 青い枠線 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
+      }
+
+      .profile-info {
+        grid-area: name-affiliation; /* grid-template-areasで定義した'name-affiliation'エリアに配置 */
+        text-align: left; /* テキストを左寄せ */
+      }
+
+      .profile-info h3 {
+        margin: 0;
+        font-size: 2em; /* 名前を大きく表示 */
+        color: #222;
+      }
+
+      .profile-info p {
+        margin: 5px 0 0;
+        font-size: 1.2em; /* 所属を少し大きく表示 */
+        color: #555;
+      }
+
+      .profile-bio {
+        grid-area: bio; /* grid-template-areasで定義した'bio'エリアに配置 */
+        text-align: center; /* 中央寄せ */
+        font-size: 1.1em;
+        color: #444;
+        margin-top: 15px; /* 上部に少し余白 */
+      }
+
+      /* その他のセクションのスタイルは既存のものを保持 */
+      .profile-section ul {
+        list-style: none; /* リストの黒丸を削除 */
+        padding: 0;
+        text-align: left; /* リストを左寄せ */
+        margin-top: 20px;
+      }
+      .profile-section ul li {
+        margin-bottom: 8px;
+        background-color: #e9f5ff; /* リストアイテムの背景色 */
+        padding: 8px 15px;
+        border-left: 5px solid #007bff;
+        border-radius: 4px;
+      }
+      .profile-section ul li strong {
+        color: #0056b3;
+      }
+      .profile-section p {
+        text-align: left; /* 段落を左寄せ */
+      }
+      .profile-section h3 {
+        margin-top: 30px;
+        text-align: left; /* h3も左寄せ */
+      }
+    </style>
   </head>
   <body>
-    <h1>こんにちは！</h1>
-    <p>これは、GitHub Pagesで公開できる静的なHTMLページです。</p>
+    <header>
+      <h1>jinkmnのITポートフォリオ</h1>
+      <nav>
+        <a href="index.html">自己紹介</a>
+        <a href="career.html">経歴</a>
+        <a href="works.html">成果物</a>
+      </nav>
+    </header>
 
-    <script>
-      // JavaScriptを使ってコンソールにメッセージを出力する例
-      console.log("こんにちは！コンソールからもメッセージを出力しています。");
+    <div class="main-content-container">
+      <section class="profile-section">
+        <h2>自己紹介</h2>
 
-      // JavaScriptを使ってページ内に別のメッセージを追加する例
-      const bodyElement = document.querySelector("body");
-      const newParagraph = document.createElement("p");
-      newParagraph.textContent = "JavaScriptで追加された新しい段落です。";
-      bodyElement.appendChild(newParagraph);
-    </script>
+        <div class="profile-card">
+          <div class="profile-icon">
+            <img
+              src="https://prog-8.com/images/sass/wanko.svg"
+              alt="プロフィールアイコン"
+            />
+          </div>
+          <div class="profile-info">
+            <h3>jinkmn</h3>
+            <p>慶應大学3年生</p>
+          </div>
+          <div class="profile-bio">
+            <p>
+              数あるサイトの中から、私のポートフォリオをご覧いただきありがとうございます。
+            </p>
+          </div>
+        </div>
+
+        <h3>略歴と興味</h3>
+        <p>
+          慶應大学3年生、楽しい大学生活を送っています。もともとIT分野に強い関心があり、特にpythonに魅力を感じています。
+        </p>
+        <p>
+          最近は、pythonでのデータ分析、AI開発の学習に力を入れており、新しい技術を習得することに喜びを感じています。
+        </p>
+
+        <h3>スキルと強み</h3>
+        <ul>
+          <li><strong>プログラミング言語:</strong> Python</li>
+          <li>
+            <strong>フレームワーク/ライブラリ:</strong> LightGBM, PyTorchなど
+          </li>
+          <li><strong>データベース:</strong> MySQL</li>
+          <li><strong>クラウドサービス:</strong> GCP</li>
+          <li><strong>その他:</strong> Git, Linux など</li>
+        </ul>
+        <p>
+          私の強みは、やる気です。特に、大学受験を通じて、この強みを活かしてきました。
+        </p>
+
+        <h3>目指すもの</h3>
+        <p>
+          将来は、世界に貢献できるITエンジニアを目指しています。常に新しい知識と技術を吸収し、成長し続けることを目標としています。
+        </p>
+
+        <h3>ご連絡</h3>
+        <p>
+          お仕事のご依頼やご相談、技術的な交流など、お気軽にご連絡ください。
+        </p>
+        <p>メール: jintakahama0821@keio.jp</p>
+        <p>
+          GitHub:
+          <a href="https://github.com/jinkmn" target="_blank"
+            >https://github.com/jinkmn</a
+          >
+        </p>
+      </section>
+    </div>
   </body>
 </html>

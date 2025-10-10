@@ -1,219 +1,255 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jinkmn 成果物</title>
     <style>
-        /* ベーススタイル */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav {
-            margin-top: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            background-color: #555;
-            transition: background-color 0.3s ease;
-        }
-        nav a:hover {
-            background-color: #777;
-        }
-        h1, h2, h3 {
-            color: #0056b3;
-        }
+      /* ベーススタイル */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: #555;
+        transition: background-color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: #777;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0056b3;
+      }
 
-        /* メインコンテンツのコンテナ */
-        .main-content-container {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
+      /* メインコンテンツのコンテナ */
+      .main-content-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+      }
 
-        /* 各セクションの共通スタイル */
-        .page-section {
-            max-width: 800px;
-            width: 100%;
-            padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-            border-radius: 10px;
-        }
+      /* 各セクションの共通スタイル */
+      .page-section {
+        max-width: 800px;
+        width: 100%;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+      }
 
-        .page-section h2 {
-            text-align: center;
-        }
+      .page-section h2 {
+        text-align: center;
+      }
 
-        /* 成果物アイテムのスタイル (CSS Gridを利用) */
+      /* 成果物アイテムのスタイル (CSS Gridを利用) */
+      .work-item {
+        display: block;
+        margin-bottom: 40px;
+        padding: 25px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fcfcfc;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* 画面幅が広い場合のレイアウト (例: 768px以上) */
+      @media (min-width: 768px) {
         .work-item {
-            display: grid;
-            /* 画面が小さい時は1列、大きい時は2列にする例 */
-            grid-template-columns: 1fr; /* デフォルトは1列 */
-            gap: 20px; /* グリッドアイテム間の隙間 */
-            margin-bottom: 40px;
-            padding: 25px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fcfcfc;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.08); /* 影を少し強める */
-        }
-
-        /* 画面幅が広い場合のレイアウト (例: 768px以上) */
-        @media (min-width: 768px) {
-            .work-item {
-                grid-template-columns: 2fr 3fr; /* 画像側を少し狭く、情報側を広く */
-                grid-template-areas: "image info"; /* 画像と情報でエリアを定義 */
-            }
+          display: flex;
+          gap: 20px;
+          align-items: start;
         }
 
         .work-image {
-            grid-area: image; /* grid-template-areasで定義した'image'エリアに配置 */
-            display: flex; /* 画像を中央寄せするためにflexを使う */
-            justify-content: center;
-            align-items: center;
-        }
-
-        .work-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease; /* ホバー時のアニメーション */
-        }
-        .work-image img:hover {
-            transform: scale(1.02); /* ホバーで少し拡大 */
+          flex: 0 0 300px;
+          max-width: 300px;
         }
 
         .work-details {
-            grid-area: info; /* grid-template-areasで定義した'info'エリアに配置 */
+          flex: 1;
         }
-        .work-details h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #007bff;
-            font-size: 1.6em;
-        }
-        .work-details p {
-            margin-bottom: 10px;
-        }
-        .work-details ul {
-            list-style: none; /* リストの黒丸を削除 */
-            padding: 0;
-            margin-top: 10px;
-        }
-        .work-details ul li {
-            margin-bottom: 5px;
-            background-color: #e9f5ff;
-            padding: 6px 12px;
-            border-left: 4px solid #007bff;
-            border-radius: 3px;
-        }
-        .work-details strong {
-            color: #0056b3;
-        }
-        .work-links a {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-right: 10px;
-            margin-top: 15px; /* 上部に余白 */
-            transition: background-color 0.3s ease;
-        }
-        .work-links a:hover {
-            background-color: #0056b3;
-        }
+      }
+
+      .work-image {
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      .work-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .work-image img:hover {
+        transform: scale(1.02);
+      }
+
+      .work-details {
+        display: block;
+      }
+      .work-details h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #007bff;
+        font-size: 1.6em;
+      }
+      .work-details .title {
+        font-weight: bold;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      .work-details p {
+        margin-bottom: 10px;
+      }
+      .work-details ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+      }
+      .work-details ul li {
+        margin-bottom: 5px;
+        background-color: #e9f5ff;
+        padding: 6px 12px;
+        border-left: 4px solid #007bff;
+        border-radius: 3px;
+      }
+      .work-details strong {
+        color: #0056b3;
+      }
+      .work-links a {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-right: 10px;
+        margin-top: 15px;
+        transition: background-color 0.3s ease;
+      }
+      .work-links a:hover {
+        background-color: #0056b3;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>My Portfolio</h1>
-        <nav>
-            <a href="index.html">自己紹介</a>
-            <a href="career.html">経歴</a>
-            <a href="works.html">成果物</a>
-        </nav>
+      <h1>My Portfolio</h1>
+      <nav>
+        <a href="index.html">自己紹介</a>
+        <a href="career.html">経歴</a>
+        <a href="works.html">成果物</a>
+      </nav>
     </header>
 
     <div class="main-content-container">
-        <section class="page-section">
-            <h2>成果物</h2>
-            <p>これまでに制作したIT関連の成果物やプロジェクトの一部をご紹介します。それぞれのプロジェクトにおいて、私がどのように課題に取り組み、どのような技術を使い、何を達成したかをご覧ください。</p>
+      <section class="page-section">
+        <h2>成果物</h2>
+        <p>
+          これまでに制作したIT関連の成果物やプロジェクトの一部をご紹介します。それぞれのプロジェクトにおいて、私がどのように課題に取り組み、どのような技術を使い、何を達成したかをご覧ください。
+        </p>
 
-            <div class="work-item">
-                <div class="work-image">
-                    <img src="https://via.placeholder.com/300x200?text=Work+1+Thumbnail" alt="成果物1のサムネイル">
-                </div>
-                <div class="work-details">
-                    <h3>[成果物/プロジェクト名 その1]</h3>
-                    <p><strong>概要:</strong> [この成果物が何であり、どんな目的で作られたかを簡潔に記述します。例えば「ユーザーが簡単にブログ記事を投稿できるウェブアプリケーション」など。]</p>
-                    <p><strong>担当:</strong> [企画、設計、開発、テスト、運用など、あなたが担当した役割を具体的に記述。複数担当した場合は全て記述。]</p>
-                    <p><strong>使用技術:</strong>
-                        <ul>
-                            <li>フロントエンド: [HTML, CSS, JavaScript, React, Vue.js など]</li>
-                            <li>バックエンド: [Node.js, Python(Django/Flask), PHP(Laravel), Ruby(Rails) など]</li>
-                            <li>データベース: [MySQL, PostgreSQL, MongoDB など]</li>
-                            <li>インフラ/その他: [AWS, Docker, Git, Figma など]</li>
-                        </ul>
-                    </p>
-                    <p><strong>工夫点/アピールポイント:</strong> [この成果物で特に工夫した点、困難だった点とその解決策、技術的な挑戦、ユーザー体験向上への貢献など、具体的なエピソードを記述します。例えば「パフォーマンスを〇〇%改善した」「ユーザーフィードバックを元に〇〇機能を実装した」など。]</p>
-                    <p><strong>学び:</strong> [このプロジェクトを通して何を学び、どのように成長できたかを記述します。例えば「新しいフレームワークの習得」「チーム開発におけるコミュニケーションの重要性」など。]</p>
-                    
-                    <div class="work-links">
-                        <a href="[デモサイトのURL]" target="_blank">デモを見る</a>
-                        <a href="[GitHubリポジトリのURL]" target="_blank">GitHub</a>
-                    </div>
-                </div>
+        <div class="work-item">
+          <div class="work-image">
+            <img src="work1.png" alt="成果物1のサムネイル" />
+          </div>
+
+          <div class="work-details">
+            <h3 class="title">コメントピックアップアプリ</h3>
+            <p>
+              <strong>概要:</strong>
+              講義に対して寄せられた大量のアンケートについて、AIがコメントを分析し、フィードバックを与えるアプリです。
+              すべてのアンケートに人の力で目を通すのが困難であり、講義の改善に生かせていないという課題を改善することがこのアプリの目的です。
+              ユーザーはアンケート結果を含むcsvファイルをアップロードすると、アンケート内のポジティブ、ネガティブコメントを要約し、
+              講義改善につながる重要なコメントや、危険度の高いコメント(誹謗中傷や法に抵触するようなコメント)を抽出します。
+              また、アンケート全体の傾向をグラフで可視化します。
+            </p>
+
+            <p><strong>使用技術:</strong></p>
+            <ul>
+              <li><strong>フロントエンド:</strong> HTML, CSS, JavaScript</li>
+              <li><strong>バックエンド:</strong> Python, FastAPI</li>
+              <li><strong>AIモデル:</strong> Google Gemini API</li>
+              <li><strong>CI/CD</strong> GitHub Actions, Render</li>
+            </ul>
+
+            <p>
+              <strong>工夫点/アピールポイント:</strong>
+              [この成果物で特に工夫した点、困難だった点とその解決策、技術的な挑戦、ユーザー体験向上への貢献など、具体的なエピソードを記述します。例えば「パフォーマンスを〇〇%改善した」「ユーザーフィードバックを元に〇〇機能を実装した」など。]
+            </p>
+            <p>
+              <strong>学び:</strong>
+              [このプロジェクトを通して何を学び、どのように成長できたかを記述します。例えば「新しいフレームワークの習得」「チーム開発におけるコミュニケーションの重要性」など。]
+            </p>
+
+            <div class="work-links">
+              <a
+                href="https://github.com/jinkmn/comment-analyzer.git"
+                target="_blank"
+                >GitHub</a
+              >
             </div>
+          </div>
+        </div>
 
-            <div class="work-item">
-                <div class="work-image">
-                    <img src="https://via.placeholder.com/300x200?text=Work+2+Thumbnail" alt="成果物2のサムネイル">
-                </div>
-                <div class="work-details">
-                    <h3>[成果物/プロジェクト名 その2]</h3>
-                    <p><strong>概要:</strong> [...]</p>
-                    <p><strong>担当:</strong> [...]</p>
-                    <p><strong>使用技術:</strong>
-                        <ul>
-                            <li>フロントエンド: [...]</li>
-                            <li>バックエンド: [...]</li>
-                            <li>データベース: [...]</li>
-                            <li>インフラ/その他: [...]</li>
-                        </ul>
-                    </p>
-                    <p><strong>工夫点/アピールポイント:</strong> [...]</p>
-                    <p><strong>学び:</strong> [...]</p>
-                    <div class="work-links">
-                        <a href="[デモサイトのURL]" target="_blank">デモを見る</a>
-                        <a href="[GitHubリポジトリのURL]" target="_blank">GitHub</a>
-                    </div>
-                </div>
+        <div class="work-item">
+          <div class="work-image">
+            <img
+              src="https://via.placeholder.com/300x200?text=Work+2+Thumbnail"
+              alt="成果物2のサムネイル"
+            />
+          </div>
+          <div class="work-details">
+            <h3>[成果物/プロジェクト名 その2]</h3>
+            <p><strong>概要:</strong> [...]</p>
+            <p><strong>担当:</strong> [...]</p>
+
+            <p><strong>使用技術:</strong></p>
+            <ul>
+              <li>フロントエンド: [...]</li>
+              <li>バックエンド: [...]</li>
+              <li>データベース: [...]</li>
+              <li>インフラ/その他: [...]</li>
+            </ul>
+
+            <p><strong>工夫点/アピールポイント:</strong> [...]</p>
+            <p><strong>学び:</strong> [...]</p>
+
+            <div class="work-links">
+              <a href="[デモサイトのURL]" target="_blank">デモを見る</a>
+              <a href="[GitHubリポジトリのURL]" target="_blank">GitHub</a>
             </div>
-
-            </section>
+          </div>
+        </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>
